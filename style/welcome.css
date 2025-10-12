@@ -1,0 +1,40 @@
+h1 {
+    font-family: var(--font-title);
+    font-size: 3em;
+    letter-spacing:.02em;
+    margin:0 0 var(--space-2);
+    color: #f2f2f2;
+    font-size: clamp(2rem, 4vw, 4rem); 
+}
+.landing-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh; 
+    overflow: hidden;
+    background-image: url("/photo/landing-container.jpg"); /* ✅ 替換成你的圖片路徑 */
+    background-size: cover;        /* 讓圖片自動填滿容器 */
+    background-position: center;   /* 圖片置中 */
+    background-repeat: no-repeat;  /* 不重複 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;                  /* 字顏色在深色背景上清楚 */
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+.order-btn {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 30px;
+    font-size:1.7rem;
+    font-weight:700;
+    text-shadow: none;
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    border: 0.5px solid white;
+    border-radius: 5px;
+    text-decoration: none;
+    z-index: 2;
+}

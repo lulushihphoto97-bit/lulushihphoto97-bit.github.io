@@ -1,0 +1,78 @@
+/* 工具列容器：對應 <section class="catalog-toolbar"> */
+.catalog-toolbar{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin: 12px 0 16px;    /* 與商品列表間距 */
+}
+
+/* Filtre 按鈕：對應 <button class="btn filter-trigger"> */
+.catalog-toolbar .filter-trigger{
+  position: static;     /* 不要固定在右上角 */
+  padding: 14px 40px;
+  border-radius: 5px;
+  border: 1px solid #292929;
+  background:#fff;
+  color:#1a1a1a;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+}
+
+/* 已套用條件顯示：對應 <span class="active-filters"> */
+.active-filters{
+  font-size: 13px;
+  color:#4a7f5b;
+  background:#e9f3ed;
+  border:1px solid #4a7f5b;
+  padding:4px 10px;
+  border-radius:5px;
+}
+
+/* 遮罩 & 彈窗：對應 #filter-overlay + #filter-dialog */
+.filter-overlay{
+  position: fixed;
+  inset:0;
+  background: rgba(0,0,0,.25);
+  z-index: 1090;
+}
+.filter-dialog{
+  position: fixed;
+  top: 12vh; left:50%; transform:translateX(-50%);
+  z-index: 1101;
+  width: min(420px, 92vw);
+  max-height: 80vh;
+  overflow:auto;
+  background:#fff;
+  border:1px solid #e6e1d9;
+  border-radius:5px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.14);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.filter-close{ background:transparent; border:none; font-size:22px; cursor:pointer; line-height:1; position:absolute; top:3px; right:4px  }
+
+.filter-body{ padding:12px 14px; display:grid; gap:14px }
+.filter-group{ display:grid; gap:8px }
+.filter-subtitle{ margin:0; font-size:14px; color:#4f4b45; letter-spacing:.02em ; font-weight: bold;}
+.filter-subtitle.ingredients{ margin: top 10px bottom 9px; font-size:14px; color:#4f4b45; letter-spacing:.02em}
+
+.tag-list{ display:flex; flex-wrap:wrap; gap:8px }
+.tag{
+  --bg:#fff; --border:#cfc8bd; --ink:#1a1a1a;
+  border:1px solid var(--border); background:var(--bg); color:var(--ink);
+  padding:6px 12px; border-radius:5px; cursor:pointer; font-size:13px; font-weight:600;
+  transition: filter .2s ease, transform .06s ease, background .2s, color .2s, border-color .2s;
+}
+.tag:active{ transform: scale(.98) }
+
+/* 三態顏色：neutral / include / exclude */
+.tag[data-state="neutral"]{ --bg:#fff; --border:#cfc8bd; --ink:#1a1a1a; }
+.tag[data-state="include"]{ --bg:#e9f3ed; --border:#4a7f5b; --ink:#2e5b3d; }
+.tag[data-state="exclude"]{ --bg:#f9eaea; --border:#c75c5c; --ink:#7a2f2f; }
+
+/* 底部按鈕 */
+.filter-footer{ display:flex; justify-content: flex-end; gap:10px; padding:12px 14px; border-top:1px solid #efeae2; }
+.btn.reset{ background:#fff; border-color:#cfc8bd; color:#4f4b45 }
+.btn.apply{ background:#4a7f5b; color:#fff; }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma page</title>
+    <link rel="stylesheet" href="style/panier.css">
+    <link rel="stylesheet" href="style/shared.css">
+    <link rel="stylesheet" href="style/category.css">
+</head>
+<body data-page="panier">
+  <section class="top-bar" aria-label="top-bar"></section>
+  <!-- 頂部導覽列 -->
+  <div class="h2-container">
+    <h2>Panier</h2>
+  </div>
+  <section class="cart-page">
+    <ul class="cart-list">
+    </ul>
+    <ul class="cart-list cart-item totalToPay">
+    </ul>
+  </section>
+
+  <!-- 底部大按鈕 -->
+  <div class="cart-footer">
+    <button class="btn cartOrderBtn" type="button" onclick = "location.href='confirmation.html'">點餐</button>
+  </div>
+</body>
+</html>
+<script type="module" src="/scripts/page/app.js"></script>

@@ -1,0 +1,184 @@
+/* 基礎與無障礙 */
+* { box-sizing: border-box; }
+/* 全站預設（拉丁） */
+body{ font-family: "Inter", system-ui, sans-serif; }
+/* 法文（含變音符） */
+:lang(fr){ font-family: "Gill Sans", sans-serif; }
+/* 英文可與法文共用同組或分開 */
+:lang(en){ font-family: "system-ui", sans-serif; }
+/* 繁中/簡中（可視需求分開） */
+:lang(zh-Hant){
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+:lang(zh-Hans){
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(250,248,244,0.92);
+}
+h2 {
+    font-size: 3em;
+    text-align: center;
+}
+
+:root, .h2-container {
+    --bg: #faf8f4;
+    --ink: #1a1a1a;
+    --muted: #666;
+    --accent: #4a7f5b;
+    --accent-ink: #fff;
+    --stroke: #e6e1d9;
+    --card: #fff;
+    --radius: 16px;
+}
+
+/* ===== 頂欄布局 ===== */
+.top-container{
+  flex-flow: row wrap;
+}
+.topbar-container{
+  display:flexbox; align-items:center; justify-content:space-between;
+  flex-flow: column wrap;
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:rgba(250,248,244,0.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--stroke);
+}
+.topbar{
+  position: sticky; top: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px;
+  background: linear-gradient(to bottom, rgba(250,248,244,0.92), rgba(250,248,244,0.8));
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--stroke);
+}
+.topbar-left{ display:flex; justify-content:left; align-items:center; gap:12px; }
+.topbar-right{ display:flex; justify-content:right;  align-items:center; gap:12px; }
+
+/* ===== 按鈕樣式（統一 a / button） ===== */
+.btn {
+    display: inline-flex
+;
+    align-items: center;
+    justify-content: center;
+    height: 37px;
+    min-width: 70px;
+
+    padding: 0 16px;
+    border-radius: 5px;
+    background: transparent;
+    color: #000000;
+    border:#1a1a1a 0.5px solid;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .25s ease, filter .2s ease, transform .06s ease;
+}
+.btn:hover{ background: #666; color:#faf8f4; }
+.btn:active{ transform: translateY(1px); }
+
+/* 次要（左側 Go Back） */
+.btn-ghost{
+  background: #fff; color: var(--ink); border-color: #cfc8bd;
+}
+.btn-ghost:hover{ filter: brightness(40); }
+
+/* Panier 徽章 */
+.badge{
+  display:inline-grid; place-items:center;
+  min-width: 20px; height: 20px; margin-left: 8px; padding: 0 6px;
+  border-radius: 999px; background: var(--accent); color: #fff;
+  font-size: 12px; font-weight: 800;
+}
+
+/* Dropdown */
+.dropdown{ position: relative; }
+.dropdown > .btn{ min-width: 120px; }
+.dropdown-content{
+  display: none; position: absolute; top: 100%; right: 0;
+  background: #fff; min-width: 140px; border-radius: 5px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15); border: 1px solid var(--stroke);
+  overflow: hidden;
+}
+.dropdown-content a{
+  display:block; padding:10px 14px; font-size:14px; color: var(--ink); text-decoration:none;
+}
+.dropdown-content a:hover{ background:#f3efe8; }
+.dropdown:hover .dropdown-content{ display:block; }
+
+/* Filtre 觸發鈕改為頂欄內顯示（覆寫你原本的 fixed 版本） */
+.filter-trigger{
+  position: static; /* 關鍵：取消先前的 fixed 右上 */
+  background:rgba(0, 0, 0, 0.6); color: #fff; border-color:#cfc8bd;
+}
+.filter-trigger:hover{ filter: brightness(0.96); }
+
+/* RWD：窄螢幕縮緊按鈕寬度與間距 */
+@media (max-width: 520px){
+  .btn{ min-width: auto; padding: 0 12px; }
+  .topbar{ padding: 10px 12px; }
+  .topbar-right{ gap: 8px; }
+  .badge{ margin-left: 6px; }
+}
+.h2-container{
+  display: flexbox; align-items: center; justify-content: center;
+  margin-top:60px; /* 頂欄高度 */
+  padding:20px;
+  text-align:center;
+}
+.btn:focus-visible{ outline: 2px solid #3a6b4c; outline-offset: 2px; }
+
+.btn.primary{
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 2px 10px rgba(74,127,91,.25);
+}
+.btn.primary:hover{ transform: translateY(-1px); }
+.btn.primary:active{ transform: translateY(0); }
+
+.btn.ghost{
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.btn.ghost:hover{
+  background: rgba(74,127,91,.06);
+}
+
+.allergy {
+  border-color: rgba(141, 0, 0, 0.875);
+  background-color: rgba(255, 4, 4, 0.23);
+}
+/* RWD：平板與手機把 layout 改為上下堆疊 */
+@media (max-width: 900px){
+  .item{
+    grid-template-columns: 140px 1fr; /* 圖片 + 內容 */
+    grid-template-areas:
+      "img content"
+      "cta cta";
+  }
+  .item-img{ grid-area: img; height: 100px; }
+  .item-content{ grid-area: content; }
+  .item-ctas{
+    grid-area: cta;
+    justify-content: flex-start;
+    padding-top: 8px;
+  }
+}
+
+@media (max-width: 560px){
+  .item{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "img"
+      "content"
+      "cta";
+  }
+  .item-img{ height: 180px; }
+}

@@ -1,0 +1,82 @@
+:root{
+  --bg:#faf8f4; --ink:#1a1a1a; --muted:#666;
+  --card:#ffffff; --stroke:#e6e1d9;
+  --accent:#4a7f5b; --accent-ink:#fff;
+  --radius:18px; --shadow:0 10px 28px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,"Noto Sans TC","PingFang TC",sans-serif;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+.success-page{
+  min-height:100dvh; display:grid; place-items:center; padding:24px;
+}
+.success-card{
+  width:min(760px,100%); background:var(--card); border:1px solid var(--stroke);
+  border-radius:5px; box-shadow:var(--shadow);
+  padding:28px 22px 28px;
+  text-align:center;
+}
+.title{margin:0 0 8px 0; font-size: clamp(24px, 4vw, 36px);}
+.note{margin:0 0 22px 0; color:var(--muted);}
+
+/* 取餐號碼 */
+.ticket{
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:8px; background:#f7f4ee; border:1px dashed #d8d1c7; border-radius:5px;
+  padding:18px; margin: 0 auto 22px; width:min(520px,100%);
+}
+.ticket-label{ font-size:14px; color:#7a7267; letter-spacing:.08em }
+.ticket-no{ font-size: clamp(42px, 10vw, 84px); font-weight: 900; letter-spacing:.04em }
+
+/* 滿意度 */
+.survey{ margin-top:8px }
+.survey-title{ margin:0 0 12px 0; font-size:18px; color:#2b2b2b }
+
+.faces{
+  margin:0 auto 18px; padding:0; border:none;
+  display:flex; justify-content:center; gap:14px; flex-wrap:wrap;
+}
+.face{
+  --ring: transparent;
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  background:#fff; border:2px solid var(--ring); border-radius:5px;
+  padding:12px 16px; width:110px; cursor:pointer;
+  transition: border-color .2s ease, transform .08s ease, box-shadow .2s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+}
+.face .icon{ font-size: 36px; line-height:1 }
+.face .txt{ font-size: 13px; color:#4f4f4f }
+.face input{ position:absolute; opacity:0; pointer-events:none }
+
+.face:hover{ transform: translateY(-2px) }
+.face input:focus-visible + .icon{ outline:2px solid #3a6b4c; outline-offset:6px }
+
+/* 選中狀態：以顏色強調 */
+.face input:checked ~ .txt{ font-weight:800; color:#2a2a2a }
+.face input[value="sad"]:checked ~ .icon{ filter: grayscale(0) }
+.face input[value="neutral"]:checked ~ .icon{ filter: grayscale(0) }
+.face input[value="happy"]:checked ~ .icon{ filter: grayscale(0) }
+
+/* 不同選項的外框色 */
+.face:has(input[value="sad"]:checked){ --ring:#c75c5c }
+.face:has(input[value="neutral"]:checked){ --ring:#b3a369 }
+.face:has(input[value="happy"]:checked){ --ring:#4a7f5b }
+
+/* 完成按鈕 */
+.btn-done{
+  display:inline-flex; align-items:center; justify-content:center;
+  height:52px; padding:0 28px; border-radius:5px; text-decoration:none;
+  background:var(--accent); color:var(--accent-ink);
+  font-weight:800; letter-spacing:.04em; box-shadow:0 10px 24px rgba(74,127,91,.28);
+  transition: transform .08s ease, filter .2s ease;
+}
+.btn-done:hover{ transform: translateY(-1px); filter:brightness(1.05) }
+.btn-done:active{ transform: translateY(0) }
+
+/* RWD */
+@media (max-width:520px){
+  .face{ width: 96px; padding:10px 12px }
+  .face .icon{ font-size: 32px }
+}

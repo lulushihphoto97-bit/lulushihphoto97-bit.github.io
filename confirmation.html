@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma page</title>
+    <link rel="stylesheet" href="style/confirmation.css">
+    <link rel="stylesheet" href="style/shared.css">
+</head>
+<body data-page="confirmation">
+    <main class="success-page" aria-labelledby="success-title">
+        <section class="success-card">
+            <h1 id="success-title" class="title">付款成功</h1>
+            <div class="ticket" aria-label="取餐號碼">
+            <span class="ticket-label">取餐號碼</span>
+            <span class="ticket-no">237</span>
+            </div>
+
+        <section class="survey" aria-labelledby="survey-title">
+            <h2 id="survey-title" class="survey-title">請選擇您的點餐滿意度</h2>
+
+            <fieldset class="faces" role="radiogroup" aria-label="滿意度">
+                <legend class="sr-only">滿意度評分</legend>
+
+                <label class="face">
+                <input type="radio" name="smile" value="sad">
+                <span class="icon" aria-hidden="true">😢</span>
+                <span class="txt">不滿意</span>
+                </label>
+
+                <label class="face">
+                <input type="radio" name="smile" value="neutral">
+                <span class="icon" aria-hidden="true">😐</span>
+                <span class="txt">普通</span>
+                </label>
+
+                <label class="face">
+                <input type="radio" name="smile" value="happy">
+                <span class="icon" aria-hidden="true">😊</span>
+                <span class="txt">滿意</span>
+                </label>
+            </fieldset>
+      <a href="./welcome.html" class="btn-done" role="button" aria-label="返回菜單">完成</a>
+        </section>
+        </section>
+    </main>
+</body>
+</html>
+<script type="module" src="/scripts/page/app.js"></script>

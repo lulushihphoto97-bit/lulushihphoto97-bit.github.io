@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma page</title>
+    <link rel="stylesheet" href="./style/category.css">
+    <link rel="stylesheet" href="./style/shared.css">
+    <link rel="stylesheet" href="./style/filter.css">
+</head>
+<body data-page="category">
+    <!-- 頂部導覽列 -->
+  
+  <section class="top-bar" aria-label="top-bar"></section>
+  
+  <div class="h2-container">
+    <h2>Category 1</h2>
+  </div>
+
+  <section class="category-section">   
+    <section class="catalog-toolbar" aria-label="Filtrer les plats">
+      <button class="btn filter-trigger" aria-haspopup="dialog" aria-controls="filter-dialog">
+        Filter
+      </button>
+      <span class="active-filters" hidden></span>
+    </section>
+    
+    <section>
+      <section class="category-list" aria-labelledby="cat1-title">
+        <ul class="item-list">
+        </ul>
+      </section>
+
+      <div class="filter-overlay" id="filter-overlay" hidden></div>
+
+      <section class="filter-dialog" id="filter-dialog" role="dialog" aria-modal="true" aria-labelledby="filter-title" hidden>
+        <header class="filter-header">
+            <!-- <h2 id="filter-title">Filtrer les plats</h2> -->
+            <button class="filter-close" aria-label="Fermer">×</button>
+        </header>
+
+        <div class="filter-body">
+          <!-- Ingrédients -->
+          <div class="filter-group">
+            <h3 class="filter-subtitle ingredients">Ingrédients</h3>
+            <div id="ingredients" class="tag-list" aria-label="Filtre par ingrédients">
+            </div>
+          </div>
+
+          <!-- Allergènes -->
+          <div class="filter-group">
+            <h3 class="filter-subtitle allergies">Allergies</h3>
+            <div id="allergies" class="tag-list" aria-label="Filtre par allergènes">
+            </div>
+          </div>
+        </div>
+
+        <footer class="filter-footer">
+          <button class="btn reset">重置</button>
+          <button class="btn apply">套用</button>
+        </footer>
+      </section>
+    </section>
+  </section>
+</body>
+</html>
+<script type="module" src="./scripts/page/app.js"></script>

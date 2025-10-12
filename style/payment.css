@@ -1,0 +1,70 @@
+:root{
+  --bg:#faf8f4; --ink:#1a1a1a; --muted:#666;
+  --card:#fff; --stroke:#e6e1d9;
+  --accent:#4a7f5b; --accent-ink:#fff;
+  --radius:16px; --shadow:0 6px 20px rgba(0,0,0,.06);
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,"Noto Sans TC","PingFang TC",sans-serif;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+.pay-page, .pay-mode, .pay-footer, .pay-recap {
+  display:grid;
+  gap:20px;
+  width: min(680px, 100%);
+  margin: 24px auto 20px auto;   /* 置中 + 上下外距 */
+  padding: 50 16px;   
+}
+
+/* 區塊標題 */
+.section-title{margin:0 0 10px 0;font-size:18px}
+
+/* Mode de paiement */
+.pay-mode{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+.mode-fieldset{margin:0;padding:0;border:none;display:flex;gap:12px}
+.mode-option{
+  display:flex;align-items:center;gap:10px;
+  background:#fff;border:1px solid var(--stroke);border-radius:999px;padding:10px 16px;cursor:pointer;
+}
+.mode-option input{accent-color:var(--accent);}
+
+/* Récapitulatif */
+.pay-recap{background:var(--card);
+  border:1px solid var(--stroke);
+  border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+.recap-table{display:grid;gap:8px}
+.recap-row{
+  display:grid;grid-template-columns: 1fr 60px 120px;align-items:center;
+  background:#fff;border:1px solid var(--stroke);border-radius:12px;padding:10px 12px;
+}
+.recap-head{background:#f3efe8;border-style:dashed;font-weight:700}
+.recap-cell{min-width:0}
+.recap-cell.price{text-align:right}
+.recap-cell.qty{text-align:center}
+.recap-sub .recap-cell,
+.recap-discount .recap-cell{background:#fff}
+.recap-total{background:#f1f7f3;border-color:#cfe0d6}
+.recap-total .recap-cell{font-size:18px}
+
+/* 底部「Payer」 */
+.pay-footer{
+  position: sticky; bottom: 0; padding:16px;
+  background: linear-gradient(to top, var(--bg) 85%, rgba(250,248,244,0));
+  display:flex; justify-content:center;
+}
+.btn-pay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width: min(200px, 100%); height:65px;
+  background:var(--accent); color:var(--accent-ink);
+  border-radius:999px; text-decoration:none; font-weight:800; font-size:18px; letter-spacing:.04em;
+  box-shadow:0 10px 24px rgba(74,127,91,.28);
+  transition: filter .2s ease, transform .08s ease;
+}
+.btn-pay:hover{ filter:brightness(1.05); transform:translateY(-1px) }
+.btn-pay:active{ transform:translateY(0) }
+
+/* RWD */
+@media (max-width:560px){
+  .recap-row{grid-template-columns: 1fr 48px 100px}
+}

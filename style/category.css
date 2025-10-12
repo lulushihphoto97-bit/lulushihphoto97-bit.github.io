@@ -1,0 +1,109 @@
+.category-section {
+  max-width: 1100px;
+  margin: 32px auto 64px;
+  padding: 0 20px;
+}
+.category-list{
+  display: block;
+}
+
+.item-list{
+  list-style:none; margin:0; padding:0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;  /* 每排之間的間距 */
+}
+
+/* 單排長條卡 */
+.item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height:230px;
+  grid-template-columns: 160px 1fr auto; /* 圖片/內容/CTA */
+  gap: 16px;
+  background: var(--card); 
+  border: 1px solid var(--stroke);
+  border-radius: 5px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+}
+
+.item-img{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.item-content{
+  flex:1;
+  display:flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+  min-width: 0; /* 防止文字撐破 */
+
+}
+
+.item-title{
+
+  margin: 40px 0 30px 10px;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.item-desc{
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.item-ctas{
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+.catalog-toolbar{
+  gap: 12px;
+  margin-top: auto;
+  margin-bottom: 16px;
+  margin-left: 250px;
+}
+.btn-filter-trigger{
+  appearance: none;
+  border: 1px solid #cfc8bd;
+  border-radius: 5px;
+  padding: 8px 14px;
+  background: #fff;
+  color: #1a1a1a;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+  min-width: 120px; 
+}
+.btn-filter-trigger:hover {
+  background: #d4d4d4;
+  border-color: #b3a89c;
+}
+.active-filters{
+  margin: 12px 0 16px;    /* 與商品列表間距 */
+}
+.btn.ghost.itemQty {
+  margin: 0 10px 0 0;
+  background-color:transparent;
+  color:#4a7f5b;
+}
+.btn.ghost.remove-product {
+  background-color:transparent;
+  color:#4a7f5b;
+}
+.btn.primary.add-to-cart {
+    margin: 0 0 10px 10px;
+}
+.btn.ghost.see-more {
+    margin: 0 0 10px 10px;
+}
+.qtyAndRemove {
+  display: flex;
+}

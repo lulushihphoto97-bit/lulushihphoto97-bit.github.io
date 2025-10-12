@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma page</title>
+    <link rel="stylesheet" href="style/help.css">
+    <link rel="stylesheet" href="style/shared.css">
+</head>
+<body data-page="help">
+  <!-- Help：遮罩 -->
+<div class="help-overlay" id="help-overlay" hidden></div>
+
+<!-- Help：彈窗 -->
+<section class="help-dialog" id="help-dialog"
+        role="dialog" aria-modal="true"
+        aria-labelledby="help-title" aria-describedby="help-desc"
+        hidden>
+
+<header class="help-header">
+    <h2 id="help-title">服務支援</h2>
+</header>
+
+  <div class="help-body">
+    <p id="help-desc">我們已通知現場工作人員前來協助您，請稍候。</p>
+  </div>
+
+  <footer class="help-footer">
+    <button class="btn btn-primary" id="help-continue" onclick="window.history.back();">
+      繼續點餐
+    </button>
+  </footer>
+  </section>
+</body>
+</html>
+<script type="module" src="./scripts/page/app.js"></script> 
+<script type="module" src="/scripts/page/help.js"></script>
